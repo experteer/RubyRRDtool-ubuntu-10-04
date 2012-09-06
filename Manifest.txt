@@ -1,4 +1,5 @@
 README
+README.md
 Manifest.txt
 Rakefile
 extconf.rb
