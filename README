@@ -1,8 +1,4 @@
-RubyRRDtool-ubuntu-10-04
-========================
-
-(NOTE: this is a patched clone from the original bindings (http://rubyrrdtool.rubyforge.org/) 
-that compiles on Ubuntu 10.04-lts (Fedora 16 is also known to work)
+# README -- ruby librrd bindings
 
 Authors: David Bacher <drbacher at alum.mit.edu>
          Mark Probert <probertm at acm.org>  

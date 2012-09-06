@@ -1,0 +1,37 @@
+--- rubyrrdtool.c       1970-01-01 01:00:00.000000000 +0100
++++ rubyrrdtool.patched.c       2009-10-13 23:13:25.352614305 +0200
+@@ -22,7 +22,6 @@
+ #include <math.h>   /* for isnan */
+ #include <ruby.h>
+ #include <rrd.h>
+-#include "rrd_addition.h"
+
+ /* printf debugging */
+ #define  R_RRD_DEBUG_OFF 0  /* no debugging   */
+@@ -314,7 +313,7 @@ VALUE rrdtool_create(VALUE self, VALUE o
+ #endif
+
+     /* now run the command */
+-    result = rrd_create_r(STR2CSTR(rrd), pdp_step, last_up, a.len, a.strs);
++    result = rrd_create_r(STR2CSTR(rrd), pdp_step, last_up, a.len, (const char **)a.strs);
+
+ #ifdef R_RRD_DBG
+     _dbug(R_RRD_DEBUG_SIM, "cleanup");
+@@ -587,7 +586,7 @@ VALUE rrdtool_update(VALUE self, VALUE o
+     a = s_arr_new(self, false, false, args);
+
+     /* now run the command */
+-    result = rrd_update_r(STR2CSTR(rrd), STR2CSTR(tmpl), a.len, a.strs);
++    result = rrd_update_r(STR2CSTR(rrd), STR2CSTR(tmpl), a.len, (const char **)a.strs);
+     /* cleanup */
+     s_arr_del(a);
+
+@@ -994,7 +993,7 @@ VALUE rrdtool_info(VALUE self)
+ {
+     VALUE   rrd;        /* rrd database filename */
+     VALUE   rval;       /* our result */
+-    info_t *data, *p;   /* this is what rrd_info()returns */
++    rrd_info_t *data, *p;   /* this is what rrd_info()returns */
+
+     reset_rrd_state();
+
