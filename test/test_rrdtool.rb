@@ -131,22 +131,22 @@ class TestRRDtool < Test::Unit::TestCase
     assert l > @start
   end
 
-  def test_resize
-    raise NotImplementedError, 'Need to write test_resize'
-  end
+# def test_resize
+#   raise NotImplementedError, 'Need to write test_resize'
+# end
 
-  def test_restore
-    raise NotImplementedError, 'Need to write test_restore'
-  end
+# def test_restore
+#   raise NotImplementedError, 'Need to write test_restore'
+# end
 
   def test_rrdname
     r = RRDtool.new 'foo'
     assert_equal r.rrdname, 'foo'
   end
 
-  def test_tune
-    raise NotImplementedError, 'Need to write test_tune'
-  end
+# def test_tune
+#   raise NotImplementedError, 'Need to write test_tune'
+# end
 
   def test_update
     create_file
@@ -166,7 +166,7 @@ class TestRRDtool < Test::Unit::TestCase
     assert_not_nil v
   end
 
-  def test_xport
-    raise NotImplementedError, 'Need to write test_xport'
-  end
+# def test_xport
+#   raise NotImplementedError, 'Need to write test_xport'
+# end
 end
